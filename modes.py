@@ -1,14 +1,13 @@
 '''
-Modes module
+Modes module.
 
-
+Calculates everything to do with modes for astrophotonics.
 
 '''
 
 import numpy as np
 
-
-def calc_modes_circ(chi = 3., Lmbda = 0.5e-6,d_t = 0.7):
+ calc_modes_circ(chi = 3., Lmbda = 0.5e-6,d_t = 0.7):
     '''
     The Mode equation for circular aperture
 
@@ -30,7 +29,9 @@ def calc_modes_circ_NA(NA = 0.14, Lmbda = 0.5e-6, a = 5e-6):
 
     NA : Numerical aperture
     Lmbda : Wavelength
-    a = radias of fibre core
+    a = radius of fibre core
+
+    Not accounting for polarisation
     '''
 
     V = calc_V(NA,Lmbda,a)
@@ -42,7 +43,7 @@ def calc_modes_circ_NA(NA = 0.14, Lmbda = 0.5e-6, a = 5e-6):
 def calc_V(NA = 0.14, Lmbda = 0.5e-6, a = 5e-6):
     '''
     calculate the V parameter for a fibre
-    
+
     NA = numerical aperture
     Lmbda = Wavelength
     a = core radius
