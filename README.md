@@ -20,3 +20,10 @@ Overlap integral stuff
 # AWG
 Munoz simluation tool
 
+# Integrate into/from other frameworks
+
+Photonics:
+Paper by Gehring+ 2019 (incl. Matthias) gives a nice overview about available software:
+https://www.osapublishing.org/DirectPDFAccess/C46A66E9-CA26-5CCA-36516FEE72605560_422644/osac-2-11-3091.pdf?da=1&id=422644&seq=0&mobile=no
+
+They have their published code (https://pypi.org/project/gdsHelpers), there is also IPKISS (http://www.ipkiss.org/), though discontinued 2013.
