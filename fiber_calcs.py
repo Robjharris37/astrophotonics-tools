@@ -2,13 +2,17 @@
 
 TBD:
 
-- overlap intergrals don't deal with complex arrays right now"""
+- overlap intergrals don't deal with complex arrays right now
+
+"""
 
 from scipy.integrate import simps
 import numpy as np
 
+
 class V_parameter(object):
-    """Houses all the functions that calculate the V parameter for a circular step index fiber."""
+    """Houses all the functions that calculate the V parameter for a circular
+    step index fiber."""
 
     def V_from_lmda_a_NA(lmda, a, NA):
         """
@@ -34,7 +38,6 @@ class MFD(object):
         V = V parameter
 
         """
-
         MFD = 2*a*(0.65 + (1.619/V**(3/2))+2.879/(V**6))
 
         return MFD
@@ -84,7 +87,8 @@ def overlap_2d(mode1, mode2, x_arr, y_arr, offset=0):
     https://stackoverflow.com/questions/20668689/
     integrating-2d-samples-on-a-rectangular-grid-using-scipy
     """
-    eta_top = simps([simps(zz_x, x_arr) for zz_x in np.conj(mode1) * mode2], y_arr)**2
+    eta_top = simps([simps(zz_x, x_arr) for zz_x in np.conj(mode1) * mode2],
+                    y_arr)**2
     eta_bottom = simps([simps(zz_x, x_arr) for zz_x in mode1**2], y_arr) * simps([simps(zz_x, x_arr) for zz_x in mode2**2], y_arr)
 
     return(eta_top/eta_bottom)
@@ -110,11 +114,11 @@ if __name__ == "__main__":
     if True:
         import general
         import matplotlib.pyplot as plt
-        
+
         x = y = np.linspace(-10, 10, 1000)
         mode1 = general.twoD_Gaussian(x, y, 1, 0, 0, 1, 1, 1, 0)
         mode2 = general.twoD_Gaussian(x, y, 1, 0, 0, 1, 1, 1, 0)
-        #plt.imshow(mode1 - mode2)
-        #plt.show()
+        # plt.imshow(mode1 - mode2)
+        # plt.show()
         test = overlap_2d(mode1, mode2, x, y)
         print(test)
