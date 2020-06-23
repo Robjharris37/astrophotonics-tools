@@ -2,6 +2,41 @@
 
 import numpy as np
 
+def fresnel_reflection_s(R1,R2):
+    """
+    Fresnel reflection losses for s polarisation.
+
+
+    """
+    # TBD
+
+def fresnel_reflection_p(R1,R2):
+    """
+    Fresnel reflection losses for p polarisaion.
+
+
+    """
+
+
+def reflection_normal(n1,n2):
+    """
+    Fresnel reflection losses for normal incidence.
+
+    For normal incidence no difference between s and p polarisation.
+
+    Inputs:
+    n1 : Refractive index of medium 1
+    n2 : Refractive index of medium 2
+
+    Returns:
+    R : The Fresnel
+
+    Doctests:
+    >>> reflection_normal(1.5,1)
+    '0.04'
+    """
+    return((n1-n2)/(n1+n2)**2)
+
 
 def twoD_Gaussian(x, y, amplitude, xo, yo, sigma_x, sigma_y, theta, offset):
     """
@@ -9,6 +44,22 @@ def twoD_Gaussian(x, y, amplitude, xo, yo, sigma_x, sigma_y, theta, offset):
 
     Source code taken from
     https://stackoverflow.com/questions/21566379/fitting-a-2d-gaussian-function-using-scipy-optimize-curve-fit-valueerror-and-m
+
+    Inputs:
+    x : the array of x
+    y : the array of y
+    amplitude : The amplitude
+    xo : x center
+    yo : y center
+    sigma_x : Standard deviation of x
+    sigma_y : Standard deviation of y
+    theta : angle
+    offset : offset in position
+
+    Returns:
+
+    Doctests:
+
     """
     x, y = np.meshgrid(x, y)
     xo = float(xo)
