@@ -11,8 +11,7 @@ import numpy as np
 
 
 def calc_modes_circ(chi=3., Lmbda=0.5e-6, d_t=0.7):
-    """
-    The Mode equation for circular aperture.
+    """Mode equation for a circular aperture.
 
     chi should be in arcsec
     d_t in m

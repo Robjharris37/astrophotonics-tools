@@ -54,6 +54,7 @@ def beam_size(w_0, z, z_r):
     w = w_0 * np.sqrt(1 + (z/z_r)**2)
     return(w)
 
+
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
