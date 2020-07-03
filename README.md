@@ -3,17 +3,33 @@ A set of tools for use in Astrophotonics.
 
 This is very much an early work in progress, with the idea being to eventually create a python module simliar to astropy/aotools that will allow the user a powerful convenient way to do  astrophotonics calculations.
 
-Initial ideas for modules
+Current organisation
+
+# Fabry Perot
+Equations relating to Fabry-Perot etalons
+
+# fiber_calcs  
+Equations for fibers
+
+# Gaussian optics
+Useful Gaussian beam approximations
+
+# general
+Generally useful aotools
+
+# glasses
+Refractive index approximations mode_matching
+
+# Modes
+Equations relating to modes
+
+## Future additions:
+
+# Overlap calcs
+Based upon work by Silvia Menghi
 
 # modes
-V number
-Number of modes in fibre
-Modes at telescope
-
-# Coupling
-Overlap integral stuff
-
-# Reformatters
+Based upon work by Mark Corrigan
 
 # Convert between code types
 - Based upon Edoardo Rizzardi work. Will upload when finished.
@@ -21,7 +37,7 @@ Overlap integral stuff
 # AWG
 Munoz simluation tool
 
-# Integrate into/from other frameworks
+# Also wish to integrate into/from other frameworks
 
 Other useful Photonics resources:
 Paper by Gehring+ 2019 (incl. Matthias) gives a nice overview about available software:
