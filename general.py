@@ -114,6 +114,50 @@ def twoD_Gaussian(x, y, amplitude, xo, yo, sigma_x, sigma_y, theta, offset):
     return g #  .ravel()      - ravel if you want a 1d version for fitting
 
 
+def circular_mask(pixels,radius, origin="Centre", inside = "True"):
+    """
+    Return a circular mask.
+
+    Useful to create pupils, circular microlens stuff mode_matching
+
+    Inputs:
+    pixels (int) : Number of pixels in the mask, to make x and y different, use [y,x]
+    radius : radius of the circle in pixels,
+    origin (centre) : Where the circle is located, default in centre, otherwise [y,x].
+    inside (True) : Where the pixels are equal to 1, default is inside radius, False means outside.
+
+    Returns:
+    mask_array : The array of
+
+    Doctests:
+
+    #TBD - add in angle and allow to be elliptical??
+    """
+    if (type(pixels)==int):
+        x_pixels = y_pixels = pixels
+    else:
+        y_pixels = pixels[0]
+        x_pixels = pixels[1]
+    # setup arrays
+    if origin == "Centre":
+        x_points_array = np.linspace(-x_pixels/2, x_pixels/2, x_pixels+1)
+        y_points_array = np.linspace(-y_pixels/2, y_pixels/2, y_pixels+1)
+    else:
+        x_points_array = np.linspace(0, x_pixels, x_pixels+1)-origin[1]
+        y_points_array = np.linspace(0, y_pixels, y_pixels+1)-origin[0]
+
+    x, y = np.meshgrid(y_points_array, x_points_array)
+    mask_array = (x**2+y**2)**0.5
+
+    # Remove central obstruction and limit lenses
+    if inside == "True":
+        mask_array = np.where(mask_array < radius, 1, 0)
+    elif inside == "False":
+        mask_array = np.where(mask_array > radius, 1, 0)
+
+    return(mask_array)
+
+
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
